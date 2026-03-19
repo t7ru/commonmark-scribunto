@@ -2,7 +2,7 @@ import { Glob } from "bun";
 import { join } from "path";
 
 const OHMYGODBRUH = "src";
-const OUT = "dist/Markdown.lua";
+const OUT = "dist/markdown.lua";
 
 const files = Array.from(new Glob("*.lua").scanSync(OHMYGODBRUH)).sort();
 
