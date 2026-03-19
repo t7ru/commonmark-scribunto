@@ -319,7 +319,10 @@ function p.parse(text, frame)
 						if cid < 4 then
 							local hh = sMatch(cur, "^[ \t]*(#+)")
 							local hr = hh and sMatch(cur, "^[ \t]*#+(.*)")
-							if hh and #hh <= 6 and (hr == "" or sSub(hr, 1, 1) == " " or sSub(hr, 1, 1) == "\t") then break end
+							if hh and #hh <= 6 and (hr == "" or sSub(hr, 1, 1) == " "
+									or sSub(hr, 1, 1) == "\t") then
+								break
+							end
 						end
 						if isThematicBreak(cur) then break end
 						if cid < 4 and sMatch(cur, "^[ \t]*>") then break end
