@@ -2,4 +2,3 @@ commonmark-spec.txt
 test*
 md.lua
 dist
-node_modules
