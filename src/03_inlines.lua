@@ -221,8 +221,15 @@ function inlines.parseInlines(s, refs)
 		s = tConcat(out)
 	end
 
-	s = sGsub(s, "\127MDTK(%d+)\127", function(id) return toks[tonumber(id)] end)
-	return s
+	local escaped = {}
+	local last = 1
+	for ts, id, te in s:gmatch("()\127MDTK(%d+)\127()") do
+		tInsert(escaped, mw.text.nowiki(sSub(s, last, ts - 1)))
+		tInsert(escaped, toks[tonumber(id)])
+		last = te
+	end
+	tInsert(escaped, mw.text.nowiki(sSub(s, last)))
+	return tConcat(escaped)
 end
 
 return inlines
