@@ -2,16 +2,29 @@
 
 A [CommonMark](https://spec.commonmark.org/0.31.2/) Markdown parser for MediaWiki, implemented as a Scribunto Lua module.
 
+A guide is also available [here](https://dev.fandom.com/wiki/Global_Lua_Modules/Markdown).
+
 ## Installation
 
-Copy the module to `Module:Markdown` on your wiki.
+1. Download and copy the module to [`Module:Markdown`](https://github.com/t7ru/commonmark-scribunto/releases/tag/build-1) on your wiki.
+2. Make sure [Scribunto](https://www.mediawiki.org/wiki/Extension:Scribunto) and [SyntaxHighlight](https://www.mediawiki.org/wiki/Extension:SyntaxHighlight) are enabled.
 
 ## Usage
 
-### In a template
+### Direct invoke
 
 ```
 {{#invoke:Markdown|main|1=Your **Markdown** here.}}
+```
+
+### Template
+Add in a template (say `Template:Markdown`):
+```
+{{#invoke:Markdown|main}}
+```
+Then:
+```
+{{Markdown|1=Your **Markdown** here.}}
 ```
 
 ### From another module
@@ -27,17 +40,17 @@ local wikitext = md.parse(text, frame)
 |---|---|
 | Backslash escapes | §2.4 |
 | Thematic breaks (`---`, `***`, `___`) | §4.1 |
-| ATX headings (`#` – `######`) | §4.2 |
+| ATX headings (`#` to `######`) | §4.2 |
 | Setext headings | §4.3 |
 | Indented code blocks | §4.4 |
 | Fenced code blocks (` ``` ` and `~~~`) | §4.5 |
 | Link reference definitions | §4.7 |
 | Paragraphs | §4.8 |
 | Block quotes | §5.1 |
-| Lists — bullet and ordered, tight and loose, nested | §5.2 / 5.3 |
+| Lists: bullet and ordered, tight and loose, nested | §5.2 / 5.3 |
 | Code spans | §6.1 |
 | Emphasis and strong emphasis (`*`, `_`, `**`, `__`) | §6.2 |
-| Links — inline, reference, collapsed, shortcut | §6.3 |
+| Links: inline, reference, collapsed, shortcut | §6.3 |
 | Images | §6.4 |
 | Autolinks | §6.5 |
 | Hard line breaks | §6.7 |
