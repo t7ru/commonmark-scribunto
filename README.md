@@ -58,7 +58,7 @@ local wikitext = md.parse(text, frame)
 
 ## Known limitations
 
-**Raw HTML (§6.6)** is intentionally not implemented. MediaWiki sanitizes user supplied HTML regardless of configuration, making passthrough unpredictable. Besides, it's pretty unsafe, no? Use wikitext or MediaWiki extension tags instead.
+**Raw HTML (§6.6)** is intentionally not implemented. MediaWiki sanitizes user supplied HTML regardless of configuration, making passthrough unpredictable. Besides, it's pretty unsafe, no?
 
 **Named entity references (§2.5)** are not decoded by the parser. MediaWiki's sanitizer decodes both named entities (`&copy;`) and numeric references (`&#42;`, `&#x2A;`) before render, so all valid references will display correctly. Structural use of entities such as `&#42;` in place of * for emphasis, however, is intentionally not supported per spec.
 
