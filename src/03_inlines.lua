@@ -221,6 +221,8 @@ function inlines.parseInlines(s, refs)
 		s = tConcat(out)
 	end
 
+	s = sGsub(s, "'''?", protect)
+
 	local escaped = {}
 	local last = 1
 	for ts, id, te in s:gmatch("()\127MDTK(%d+)\127()") do
