@@ -7,7 +7,7 @@ shopt -s nullglob
 files=(src/*.lua)
 
 cat << 'EOF' > "$OUT"
--- Version:	1.1
+-- Version:	1.2
 -- License:	MIT
 -- Author:	t7ru [[User:Gabonnie]]
 local _modules = {}
