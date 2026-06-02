@@ -1,9 +1,17 @@
 {
 	"$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
 	"runtime": {
-		"version": "Lua 5.1"
+		"version": "Lua 5.1",
+		"builtin": {
+			"io": "disable",
+			"coroutine": "disable",
+			"os": "disable",
+			"debug": "disable",
+			"package": "disable"
+		}
 	},
-	"diagnostics": {
-		"globals": ["mw"]
+	"workspace": {
+		"library": ["../vendor/scribunto-luacats/library"],
+		"checkThirdParty": false
 	}
 }
